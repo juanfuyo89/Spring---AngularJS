@@ -34,15 +34,29 @@ import web.controller.model.OrdersResponse;
 @RestController
 public class OrderController {
 
+	/**
+	 * Constantes con los codigos de respuesta del servicio Web
+	 */
 	private static final String SUCCESS_CODE = "00";
 	private static final String DATE_ERROR_CODE = "05";
 	private static final String CUSTOMER_ERROR_CODE = "06";
 	private static final String PRODUCT_AMOUNT_ERROR_CODE = "10";
 	private static final String PRODUCT_ERROR_CODE = "12";
 
+	/**
+	 * Inyeccion del componente de la capa de servicios
+	 */
 	@Autowired
 	OrderService orderService;
 
+	/**
+	 * Retorna un listado de ordenes de compra por un usuario y un rango de fechas.
+	 * 
+	 * @param idCustomer
+	 * @param initDateParam
+	 * @param finalDateParam
+	 * @return List<Order>
+	 */
 	@GetMapping("getOrders/idCustomer/{idCustomer}/initDate/{initDate}/finalDate/{finalDate}")
 	@ResponseBody
 	public ResponseEntity getCustomers(@PathVariable("idCustomer") int idCustomer,
@@ -68,6 +82,12 @@ public class OrderController {
 		}
 	}
 
+	/**
+	 * Crea una orden de compra a partir de la solicitud.
+	 * 
+	 * @param order
+	 * @return OrdersResponse - objeto con un codigo y un mensaje de respuesta.
+	 */
 	@PostMapping(value = "/createOrder")
 	public ResponseEntity createCustomer(@RequestBody Order order) {
 		if (!this.validateProductAmount(order)) {
@@ -89,6 +109,12 @@ public class OrderController {
 		return new ResponseEntity(response, HttpStatus.OK);
 	}
 
+	/**
+	 * Valida que la cantidad de productos en la orden no sea mayor a 5.
+	 * 
+	 * @param order
+	 * @return boolean - true si es menor o igual y false si es mayor a 5.
+	 */
 	private boolean validateProductAmount(Order order) {
 		int productAmount = 0;
 		for (OrderDetail orderDetail : order.getOrderDetails()) {
@@ -96,5 +122,5 @@ public class OrderController {
 		}
 		return (productAmount <= 5);
 	}
-	
+
 }

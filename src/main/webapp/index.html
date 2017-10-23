@@ -1,105 +1,105 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
-	<meta charset="utf-8">
-    <title>Prueba Desarrollador Java Beitech</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <!-- AngularJs -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-    <!-- Scripts de la aplicación -->
-    <script src="script.js"></script>
-    <!-- Bootstrap JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<title>Prueba Desarrollador Java Beitech</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<!-- AngularJs -->
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<!-- Scripts de la aplicación -->
+<script src="script.js"></script>
 </head>
 <body ng-controller="PruebaController">
 
-<!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="img/logo.png" width="150" height="30" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="#"> <img src="img/logo.png"
+				width="150" height="30" alt="">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link" href="#">Home
+							<span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">About</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Services</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-<div class="container">
-<br><br><br><br>
-    <div class="row">
-    	<div class="col-md-10 col-md-offset-1">
-			<label for="singleSelect"> Seleccione un cliente para consultar las ordenes del último mes: </label>
-			<br><br>
-		   	<select ng-model="customer" ng-change="getOrders()"  class="form-control col-md-6">
-		   		<option value="1" ng-selected="selected">Juan Carlos Fuyo</option>
-		     	<option value="3" >Manny Bharma</option>
-		     	<option value="4" >Alan Briggs</option>
-		     	<option value="5" >Mike Simm</option>
-		   	</select>
-		    <br><br>
-	    </div>
-    </div>
+	<div class="container">
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<label for="singleSelect"> Seleccione un cliente para
+					consultar las ordenes del último mes: </label> <br>
+				<br> <select ng-model="customer" ng-change="getOrders()"
+					class="form-control col-md-6">
+					<option value="1" ng-selected="selected">Juan Carlos Fuyo</option>
+					<option value="3">Manny Bharma</option>
+					<option value="4">Alan Briggs</option>
+					<option value="5">Mike Simm</option>
+				</select> <br>
+				<br>
+			</div>
+		</div>
 
-    <div class="row">
-    	<div class="col-md-12 col-md-offset-0">
-    		<table class="table" ng-hide="error===1">
-				<thead class="thead-inverse">
-				    <tr>
-				        <th>Creation Date</th>
-				        <th>Order ID</th>
-				        <th>Total $</th>
-				        <th>Delivery Address</th>
-				        <th>Products</th>
-				    </tr>
-			    </thead>
-			    <tbody>
-				    <tr ng-repeat="order in orders">
-				        <td>{{order.creationDate}}</td>
-				        <td>{{order.id}}</td>
-				        <td>
-				        	{{order.total}}
-				        </td>
-				        <td>{{order.deliveryAddress}}</td>
-				        <td>
-				        	<p ng-repeat="orderDetail in order.orderDetails">
-				        		{{orderDetail.amount}} x 
-				        		{{orderDetail.product.name}}
-						    </p>
-				        </td>
-				    </tr>
-			    </tbody>
-			</table>
-    	</div>
-    </div>
-	
-    <br><br>
+		<div class="row">
+			<div class="col-md-12 col-md-offset-0">
+				<table class="table" ng-hide="error===1">
+					<thead class="thead-inverse">
+						<tr>
+							<th>Creation Date</th>
+							<th>Order ID</th>
+							<th>Total $</th>
+							<th>Delivery Address</th>
+							<th>Products</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="order in orders">
+							<td>{{order.creationDate}}</td>
+							<td>{{order.id}}</td>
+							<td>{{order.total}}</td>
+							<td>{{order.deliveryAddress}}</td>
+							<td>
+								<p ng-repeat="orderDetail in order.orderDetails">
+									{{orderDetail.amount}} x {{orderDetail.product.name}}</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 
-    <div ng-show="error===1">
-    	<p ng-model="errorMsg">{{errorMsg}}</p>
-    </div>
+		<br>
+		<br>
 
-</div>
+		<div ng-show="error===1">
+			<p ng-model="errorMsg">{{errorMsg}}</p>
+		</div>
+
+	</div>
 
 </body>
 </html>

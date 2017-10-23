@@ -22,19 +22,37 @@ import services.exceptions.CustomerNotExistException;
 import services.exceptions.ProductNotAllowedException;
 import web.controller.model.OrdersQuery;
 
+/**
+ * Clase que implementa un Bean de servicios para el manejo de ordenes de
+ * compra.
+ * 
+ * @author Juan Carlas Fuyo
+ */
 @Service("orderService")
 @Transactional
 public class OrderServiceImpl implements OrderService {
 
+	/**
+	 * Inyeccion del DAO de tipo Customer
+	 */
 	@Autowired
 	private CustomerDao customerDao;
 
+	/**
+	 * Inyeccion del DAO de tipo Product
+	 */
 	@Autowired
 	private ProductDao productDao;
 
+	/**
+	 * Inyeccion del DAO de tipo Order
+	 */
 	@Autowired
 	private OrderDao orderDao;
 
+	/**
+	 * Inyeccion del DAO de tipo ProductsAllowed
+	 */
 	@Autowired
 	private ProductsAllowedDao productsAllowedDao;
 
@@ -84,6 +102,13 @@ public class OrderServiceImpl implements OrderService {
 		return true;
 	}
 
+	/**
+	 * Valida la existencia del cliente en sistema.
+	 * 
+	 * @param customer
+	 * @return
+	 * @throws CustomerNotExistException
+	 */
 	private Customer validateCustomer(Customer customer) throws CustomerNotExistException {
 		customer = customerDao.findCustomerById(customer);
 		if (customer == null) {

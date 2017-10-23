@@ -7,7 +7,8 @@ import services.exceptions.ProductNotAllowedException;
 import web.controller.model.OrdersQuery;
 
 /**
- * Interface para definir el Bean de servicios
+ * Interface que define un Bean de servicios para el manejo de ordenes de
+ * compra.
  * 
  * @author Juan Carlas Fuyo
  */
@@ -28,7 +29,7 @@ public interface OrderService {
 	 * 
 	 * @param orderQuery
 	 * @return List<Order>
-	 * @throws CustomerNotExistException 
+	 * @throws CustomerNotExistException
 	 */
 	public List<Order> getOrdersByCustomer(OrdersQuery orderQuery) throws CustomerNotExistException;
 

@@ -5,7 +5,14 @@ import java.util.Date;
 
 import data.model.Customer;
 
-public class OrdersQuery implements Serializable{
+/**
+ * Clase que encapsula una consulta de ordenes basada en un cliente y un rango
+ * de fechas.
+ * 
+ * @author Juan Carlos Fuyo
+ *
+ */
+public class OrdersQuery implements Serializable {
 
 	/**
 	 * serialVersionUID
@@ -15,7 +22,7 @@ public class OrdersQuery implements Serializable{
 	private Customer customer;
 	private Date initDate;
 	private Date finalDate;
-	
+
 	public OrdersQuery(Customer customer, Date initDate, Date finalDate) {
 		this.customer = customer;
 		this.initDate = initDate;
@@ -30,7 +37,8 @@ public class OrdersQuery implements Serializable{
 	}
 
 	/**
-	 * @param customer the customer to set
+	 * @param customer
+	 *            the customer to set
 	 */
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
@@ -42,9 +50,10 @@ public class OrdersQuery implements Serializable{
 	public Date getInitDate() {
 		return initDate;
 	}
-	
+
 	/**
-	 * @param initDate the initDate to set
+	 * @param initDate
+	 *            the initDate to set
 	 */
 	public void setInitDate(Date initDate) {
 		this.initDate = initDate;
@@ -58,7 +67,8 @@ public class OrdersQuery implements Serializable{
 	}
 
 	/**
-	 * @param finalDate the finalDate to set
+	 * @param finalDate
+	 *            the finalDate to set
 	 */
 	public void setFinalDate(Date finalDate) {
 		this.finalDate = finalDate;
@@ -68,5 +78,5 @@ public class OrdersQuery implements Serializable{
 	public String toString() {
 		return "OrdersQuery [customer=" + customer + ", initDate=" + initDate + ", finalDate=" + finalDate + "]";
 	}
-	
+
 }

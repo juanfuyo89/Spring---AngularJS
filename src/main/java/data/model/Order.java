@@ -51,7 +51,7 @@ public class Order implements Serializable {
 	// bi-directional many-to-one association to Customer
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_id", referencedColumnName = "id")
-	@JsonProperty(access = Access.WRITE_ONLY)
+	@JsonProperty(access = Access.WRITE_ONLY) // no retorne el cliente en la orden de compra
 	private Customer customer;
 
 	// bi-directional many-to-one association to OrderDetail

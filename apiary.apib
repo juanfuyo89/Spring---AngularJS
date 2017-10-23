@@ -9,8 +9,13 @@ Sistema que permite generar y consultar ordenes de productos para clientes.
 
 ###  Listar ordenes por cliente [GET]
 
-Crear​ ​una​ ​órden​ para un cliente con hasta máximo 5 productos 
-(sólo algunos productos están permitidos por cliente).
+Listar ​las​ órdenes de un cliente por un rango de fechas.
+
+La solicitud debe tener los siguientes atributos:
+
++ idCustomer
++ initDate - Fecha inicial del rango.
++ finalDate - Fecha final del rango.
 
 + Response 200 (application/json)
 
@@ -48,11 +53,19 @@ Crear​ ​una​ ​órden​ para un cliente con hasta máximo 5 productos
                 }]}
             ]
 
-### Listar ordenes por cliente [POST]
+### Generar orden de compra [POST]
 
-Listar ​las​ órdenes de un cliente por un rango de fechas. 
+Crear​ ​una​ ​órden​ para un cliente con hasta máximo 5 productos 
+(sólo algunos productos están permitidos por cliente). 
 Retorna el codigo de respuesta y un mensaje, si es exitoso, el 
-mensaje es el Id de la orden, en caso contrario es el error ocurrido.
+mensaje es el Id de la orden, en caso contrario es la descripción 
+del error ocurrido.
+
+El objeto json debe tener los siguientes atributos:
+
++ deliveryAddress - Direccion de entrega
++ customer - Objeto json con el id del cliente.
++ orderDetails - Array con los detalles de la orden de compra.
 
 + Request (application/json)
         

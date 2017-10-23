@@ -50,7 +50,7 @@ public class OrderController {
 	OrderService orderService;
 
 	/**
-	 * Retorna un listado de ordenes de compra por un usuario y un rango de fechas.
+	 * Retorna un listado de ordenes de compra por un usuario y un rango de fechas
 	 * 
 	 * @param idCustomer
 	 * @param initDateParam

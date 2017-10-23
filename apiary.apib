@@ -1,0 +1,112 @@
+FORMAT: 1A
+HOST: http://localhost:13511/Products/api/
+
+# ProductOrders
+
+Sistema que permite generar y consultar ordenes de productos para clientes.
+
+## Listar ordenes [/getOrders/idCustomer/4/initDate/2017-09-21/finalDate/2017-10-22]
+
+###  Listar ordenes por cliente [GET]
+
+Listar ​las​ órdenes de un cliente por un rango de fechas.
+
+La solicitud debe tener los siguientes atributos:
+
++ idCustomer
++ initDate - Fecha inicial del rango.
++ finalDate - Fecha final del rango.
+
++ Response 200 (application/json)
+
+    + Body
+    
+            [
+                {
+                "id":35,
+                "deliveryAddress":"Calle 12 N 40-31",
+                "creationDate":"2017-10-22",
+                "orderDetails":[{
+                    "id":67,
+                    "product":{"id":1,"name":"Producto Uno"},
+                    "amount":3,
+                    "price":30000
+                },{
+                    "id":68,
+                    "product":{"id":2,"name":"Producto Dos"},
+                    "amount":2,
+                    "price":15000
+                }]},
+                {
+                "id":36,
+                "deliveryAddress":"Calle 12 N 40-31",
+                "creationDate":"2017-10-22",
+                "orderDetails":[{
+                    "id":69,
+                    "product":{"id":1,"name":"Producto Uno"},
+                    "amount":3,
+                    "price":30000
+                },{
+                    "id":70,
+                    "product":{"id":2,"name":"Producto Dos"},
+                    "amount":2,"price":15000
+                }]}
+            ]
+## Generar orden [/createOrder]
+
+### Generar orden de compra [POST]
+
+Crear​ ​una​ ​órden​ para un cliente con hasta máximo 5 productos 
+(sólo algunos productos están permitidos por cliente). 
+Retorna el codigo de respuesta y un mensaje, si es exitoso, el 
+mensaje es el Id de la orden, en caso contrario es la descripción 
+del error ocurrido.
+
+El objeto json debe tener los siguientes atributos:
+
++ deliveryAddress - Direccion de entrega
++ customer - Objeto json con el id del cliente.
++ orderDetails - Array con los detalles de la orden de compra.
+
++ Request (application/json)
+        
+    + Body
+        
+            {
+              "deliveryAddress": "Calle 12 N 40-31",
+              "customer": {
+                "id": 5
+              },
+              "orderDetails": [
+                {
+                  "product": {
+                    "id": 2
+                  },
+                  "amount": 1,
+                  "price": 157000
+                },
+                {
+                  "product": {
+                    "id": 3
+                  },
+                  "amount": 2,
+                  "price": 19000
+                },
+                {
+                  "product": {
+                    "id": 4
+                  },
+                  "amount": 2,
+                  "price": 23000
+                }
+              ]
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "responseCode": "00",
+                "message": "39"
+            }

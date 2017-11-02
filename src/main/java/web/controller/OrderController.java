@@ -23,7 +23,7 @@ import web.controller.model.OrdersQuery;
 import web.controller.model.OrdersResponse;
 
 /**
- * Clase que implementa el controlador REST de la aplicacion
+ * Clase que implementa el controlador REST de la aplicacion.
  * 
  * @author Juan Carlos Fuyo
  *

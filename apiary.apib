@@ -11,6 +11,11 @@ Sistema que permite generar y consultar ordenes de productos para clientes.
 
 Listar ​las​ órdenes de un cliente por un rango de fechas.
 
+Los posibles codigos de error son:
+
++ 05 - formato de fecha invalido
++ 06 - cliente no existe
+
 La solicitud debe tener los siguientes atributos:
 
 + idCustomer
@@ -61,6 +66,13 @@ Crear​ ​una​ ​órden​ para un cliente con hasta máximo 5 productos
 Retorna el codigo de respuesta y un mensaje, si es exitoso, el 
 mensaje es el Id de la orden, en caso contrario es la descripción 
 del error ocurrido.
+
+Los posibles codigos de respuesta son:
+
++ 00 - generacion de orden exitosa
++ 06 - cliente no existe
++ 10 - cantidad de productos no permitida
++ 12 - producto no existe o no disponible para el cliente
 
 El objeto json debe tener los siguientes atributos:
 
